@@ -1,0 +1,134 @@
+<html>
+  <head>
+    <title>IJF</title>
+    $webResourceManager.requireResource("com.idealfed.utils.idealworklogs:idealworklogs-resources5")
+
+
+    <link type="text/css" href="$ijfRoot/download/resources/com.idealfed.utils.idealworklogs:idealworklogs-resources5/craft.css" rel="stylesheet" />
+    <link type="text/css" href="$ijfRoot/download/resources/com.idealfed.utils.idealworklogs:idealworklogs-resources5/theme-neptune-all_1.css" rel="stylesheet" />
+    <link type="text/css" href="$ijfRoot/download/resources/com.idealfed.utils.idealworklogs:idealworklogs-resources5/theme-neptune-all_2.css" rel="stylesheet" />
+             
+             
+    <script src="$ijfRoot/download/resources/com.idealfed.utils.idealworklogs:idealworklogs-resources5/jquery-1.11.2.min.js" type="text/javascript"></script>
+    <script src="$ijfRoot/download/resources/com.idealfed.utils.idealworklogs:idealworklogs-resources5/ext-all.js" type="text/javascript"></script>
+    <script src="$ijfRoot/download/resources/com.idealfed.utils.idealworklogs:idealworklogs-resources5/moment.js" type="text/javascript"></script> 
+    <script src="$ijfRoot/download/resources/com.idealfed.utils.idealworklogs:idealworklogs-resources5/FileSaver.min.js" type="text/javascript"></script>
+    <script src="$ijfRoot/download/resources/com.idealfed.utils.idealworklogs:idealworklogs-resources5/jszip_v2.js" type="text/javascript"></script>
+    <script src="$ijfRoot/download/resources/com.idealfed.utils.idealworklogs:idealworklogs-resources5/diff.js" type="text/javascript"></script>
+    <script src="$ijfRoot/download/resources/com.idealfed.utils.idealworklogs:idealworklogs-resources5/jquery.ba-postmessage.js" type="text/javascript"></script>
+
+    
+    <metaname="decorator"content="atl.admin"/>
+
+  <script>
+      g_username = "$ijfUsername";
+      g_version = "$ijfVersion";
+      g_iwfFormSetId = "firstFormSet";
+      g_formId = "$ijfFormId";
+      g_itemId = "$ijfItemId";
+      g_debug =  "$ijfDebug";
+      g_root = "$ijfRoot";
+      g_imagesRoot = g_root + "/download/resources/com.idealfed.utils.idealworklogs:idealworklogs-resources/images/";
+      g_args =  '';
+      g_craft = "$ijfCraft";
+      g_dashboard = '';
+      g_configDir = 'IJF_Configuration';
+           g_IftProduct = "$ijfProduct";           
+      g_IftRepo = "$ijfProductRepo";  
+            g_IftRuntime = "server";
+      //document on ready here.. init or load and then init...
+      
+      ijfLoadCount = 0;
+      function ijfLoaded()
+      {
+          ijfLoadCount++;
+          if(ijfLoadCount==7)
+          {
+          	ijf.main.init(0);
+          }
+      }
+   
+     
+	  jQuery.ajax({
+			url: "https://www.idealfed.com/$ijfRemote/ijf_utils.js",
+			type: "get",
+			cache: false,
+			dataType: "script",
+			success: ijfLoaded
+		});
+	  jQuery.ajax({
+			url: "https://www.idealfed.com/$ijfRemote/ijf_model.js",
+			type: "get",
+			cache: false,
+			dataType: "script",
+			success: ijfLoaded
+		});		
+	  jQuery.ajax({
+			url: "https://www.idealfed.com/$ijfRemote/ijf_main.js",
+			type: "get",
+			cache: false,
+			dataType: "script",
+			success: ijfLoaded
+		});
+	  jQuery.ajax({
+			url: "https://www.idealfed.com/$ijfRemote/ijf_framework.js",
+			type: "get",
+			cache: false,
+			dataType: "script",
+			success: ijfLoaded
+		});
+	  jQuery.ajax({
+			url: "https://www.idealfed.com/$ijfRemote/ijf_lists.js",
+			type: "get",
+			cache: false,
+			dataType: "script",
+			success: ijfLoaded
+		});				      
+				
+	  jQuery.ajax({
+			url: "https://www.idealfed.com/$ijfRemote/ijf_ext_utils.js",
+			type: "get",
+			cache: false,
+			dataType: "script",
+			success: ijfLoaded
+		});
+	  jQuery.ajax({
+			url: "https://www.idealfed.com/$ijfRemote/xumenter.js",
+			type: "get",
+			cache: false,
+			dataType: "script",
+			success: ijfLoaded
+		});		
+
+	
+  </script>
+
+</head>
+<body>
+<div id = 'ijfOuterContainer'>
+  <div id='ijfHead' class='cwf-header'></div>
+  <div id='ijfContent'  class='cwf-content'></div>
+  <div id='ijfFoot' class='cwf-footer'></div>
+</div>
+<div id='ijfManage'></div>
+<div id='ijfJsonUpload'></div>
+<div id='ijfCraft1'></div>
+<div id='ijfAdmin1'></div>
+<div id='ijfDebug'></div>
+#disable_html_escaping()
+<script type="text/javascript">
+var ijf = ijf || {};
+ijf.snippets = (function(){
+var enabled=true;
+$ijfScript
+return{
+enabled:enabled
+$ijfSnippetPub
+};
+})();
+</script>
+<style>
+$ijfStyle
+</style>
+</body>
+</html>

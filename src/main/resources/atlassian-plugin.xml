@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--atlassian-plugin key="${project.groupId}.${project.artifactId}" name="${project.name}" plugins-version="2"-->
+
+
+<atlassian-plugin key="com.idealfed.utils.idealworklogs" name="${project.name}" plugins-version="2">
+  <plugin-info>
+    <description>${project.description}</description>
+    <version>${project.version}</version>
+    <vendor name="${project.organization.name}" url="${project.organization.url}"/>
+    <param name="plugin-icon">images/idf.png</param>
+    <param name="plugin-logo">images/pluginLogo.png</param>
+    <param name="plugin-summary">Ideal Worklogs for JIRA provides simple tools for managing time entries.</param>
+    <param name="plugin-tagline">Ideal Worklogs for JIRA simplifies time manage for end users and managers.</param>    
+    <param name="atlassian-licensing-enabled">false</param>     
+     <screenshots>
+            <screenshot image="images/admin.png"/>
+            <screenshot image="images/list.png"/>
+    </screenshots>
+  </plugin-info>
+  <!-- add our i18n resource -->
+  <resource type="i18n" name="i18n" location="craft"/>
+ 
+  <!-- add our web resources -->
+  <web-resource key="idealworklogs-resources5" name="craft Web Resources">
+
+    <resource type="download" name="images/" location="/images"/>  
+    <resource type="download" name="craft.css" location="/css/craft.css"/>
+    <resource type="download" name="theme-crisp-all_1.css" location="/css/theme-crisp-all_1.css"/>
+    <resource type="download" name="theme-crisp-all_2.css" location="/css/theme-crisp-all_2.css"/>     
+    <resource type="download" name="theme-neptune-all_1.css" location="/css/theme-neptune-all_1.css"/>
+    <resource type="download" name="theme-neptune-all_2.css" location="/css/theme-neptune-all_2.css"/>          
+    <resource type="download" name="charts-all.css" location="/css/charts-all.css"/>  
+    <resource type="download" name="charts-all-rtl.css" location="/css/charts-all-rtl.css"/>  
+    <resource type="download" name="material-ui.css" location="/css/material-ui.css"/>  
+     
+    <resource type="download" name="react.js" location="/js/react.js"/>  
+    <resource type="download" name="react-dom.js" location="/js/react-dom.js"/>        
+    <resource type="download" name="material-ui.js" location="/js/material-ui.js"/> 
+        
+    <resource type="download" name="jquery-1.11.2.min.js" location="/js/jquery-1.11.2.min.js"/>
+    <resource type="download" name="ext-all.js" location="/js/ext-all.js"/>
+    
+    <resource type="download" name="FileSaver.min.js" location="/js/FileSaver.min.js"/>
+    <resource type="download" name="moment.js" location="/js/moment.js"/>
+    <resource type="download" name="charts.js" location="/js/charts.js"/>    
+    <resource type="download" name="jszip_v2.js" location="/js/jszip_v2.js"/>    
+    <resource type="download" name="diff.js" location="/js/diff.js"/>  
+    
+    <resource type="download" name="xumenter.js" location="/js/xumenter.js"/>     
+    <resource type="download" name="craft.js" location="/js/craft.js"/>
+    <resource type="download" name="ijf_utils.js" location="/js/ijf_utils.js"/>
+    <resource type="download" name="ijf_model.js" location="/js/ijf_model.js"/>
+    <resource type="download" name="ijf_main.js" location="/js/ijf_main.js"/>
+    <resource type="download" name="ijf_framework.js" location="/js/ijf_framework.js"/>
+    <resource type="download" name="ijf_lists.js" location="/js/ijf_lists.js"/>
+    <resource type="download" name="ijf_admin.js" location="/js/ijf_admin.js"/>
+    <resource type="download" name="ijf_ext_utils.js" location="/js/ijf_ext_utils.js"/>
+    <resource type="download" name="ijf_react_utils.js" location="/js/ijf_react_utils.js"/>
+    <resource type="download" name="ijf_dataservices.js" location="/js/ijf_dataservices.js"/>
+    <resource type="download" name="ijf_versionadmin.js" location="/js/ijf_versionadmin.js"/>
+    
+    <resource type="download" name="jquery.ba-postmessage.js" location="/js/jquery.ba-postmessage.js"/>
+
+    <context>craft</context>
+  </web-resource>
+  <!-- publish our component -->
+  <servlet name="craft" class="com.idealfed.worklogs.poc.craft.Craft" key="iftWlCraft">
+    <url-pattern>/iftwl</url-pattern>
+  </servlet>
+  
+  <ao key="ao-module">
+     <description>The module configuring the Active Objects service used by this plugin</description>
+     <entity>com.idealfed.worklogs.jiraforms.ao.Form</entity>
+     <entity>com.idealfed.worklogs.jiraforms.ao.FormSet</entity>
+     <entity>com.idealfed.worklogs.jiraforms.ao.Snippet</entity>
+     <entity>com.idealfed.worklogs.jiraforms.ao.Version</entity>     
+     <entity>com.idealfed.worklogs.jiraforms.ao.CustomType</entity>     
+   </ao>
+  
+ <web-section key="ift_web_section" name="IFT Section" location="admin_plugins_menu" weight="16">
+    <label>Ideal Tech</label>
+    <description>IFT Administration</description>    
+ </web-section>
+  
+  <!--
+  <web-item key="ijf_links_link1" name="Link on IJF Links Main Section" section="admin_plugins_menu/ift_web_section" weight="10">
+    <label>Ideal Forms</label>
+    <link linkId="iftWorklogsAdminId">/plugins/servlet/iftwl?decorator=admin</link>
+  </web-item>
+  -->
+  
+  <web-item key="ijf_worklogAdmin_link" name="Link on IJF Links Main Section" section="admin_plugins_menu/ift_web_section" weight="20">
+    <label>Ideal Worklogs</label>
+    <link linkId="iftWorklogsAdminId2">/plugins/servlet/iftwl?mode=versionadmin&amp;decorator=admin</link>
+  </web-item>  
+    
+  <!--web-item key="ijf_links_worklogs" name="Link on search Section" section="jira.navigator.pluggable.items" weight="20">
+    <label>Worklogs</label>
+    <link linkId="iftWorklogsId">/plugins/servlet/iftwl?decorator=general&amp;formId=IFT%20Worklog%20Report</link>
+  </web-item-->      
+    
+  <web-item key="ijf_links_worklogs2" name="Link on search Section" section="jira.navigator.pluggable.items" weight="20">
+    <label>Worklogs</label>
+    <link linkId="iftWorklogsId2">javascript:if(jql.value){window.location=&quot;/plugins/servlet/iftwl?decorator=general&amp;formId=IFT%20Worklog%20Report&amp;jql=&quot; + jql.value} else {window.location=&quot;/plugins/servlet/iftwl?decorator=general&amp;formId=IFT%20Worklog%20Report&amp;jql=&quot; + window.location.search.replace(&quot;?&quot;,&quot;&quot;)}</link>
+  </web-item>      
+    
+    
+  <!-- import from the product container -->
+  <component-import key="ao" name="Active Objects service" interface="com.atlassian.activeobjects.external.ActiveObjects">
+          <description>Component to access Active Objects functionality from the plugin</description>
+  </component-import>
+  <component-import key="applicationProperties" interface="com.atlassian.sal.api.ApplicationProperties"/>
+  <component-import key="pluginLicenseManager" interface="com.atlassian.upm.api.license.PluginLicenseManager" filter=""/>  
+  <component-import key="templateRenderer" interface="com.atlassian.templaterenderer.TemplateRenderer" filter=""/>
+  <component-import key="userManager" interface="com.atlassian.sal.api.user.UserManager" filter=""/>
+  <component-import key="userManager2" interface="com.atlassian.jira.user.util.UserManager" filter=""/>  
+  <component-import key="groupManager" interface="com.atlassian.jira.security.groups.GroupManager" filter=""/>  
+  <component-import key="loginUriProvider" interface="com.atlassian.sal.api.auth.LoginUriProvider" filter=""/>
+  <component-import key="pluginSettingsFactory" interface="com.atlassian.sal.api.pluginsettings.PluginSettingsFactory" filter=""/>
+  <component-import key="attachmentManager" interface="com.atlassian.jira.issue.AttachmentManager" filter=""/>
+  <component-import key="jiraAuthenticationContext" interface="com.atlassian.jira.security.JiraAuthenticationContext" filter=""/>    
+  
+  <component key="ijf-lifecyle-mng-component" class="com.idealfed.worklogs.poc.craft.LifeCyleManager" public="true">
+            <interface>com.atlassian.sal.api.lifecycle.LifecycleAware</interface>
+  </component>
+  
+</atlassian-plugin>
+
+
+
+
+

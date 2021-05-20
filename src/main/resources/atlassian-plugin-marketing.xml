@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<atlassian-plugin-marketing>
+    <!--Describe names and versions of compatible applications -->
+    <compatibility>
+        <product name="jira" min="7.0" max="7.2" />
+    </compatibility>
+    <!-- Describe your add-on logo and banner. The banner is only displayed in the UPM. -->
+    <logo image="images/idf.png"/> 
+    <!-- Describe highlight and cropped highlight image assets, in order. -->
+    <!-- Describe additional screenshots you'd like listed on your add-on listing. -->
+    <screenshots>
+        <screenshot image="images/admin.png"/>
+        <screenshot image="images/list.png"/>
+        <screenshot image="images/form.png"/>
+    </screenshots>
+       
+    
+</atlassian-plugin-marketing>
