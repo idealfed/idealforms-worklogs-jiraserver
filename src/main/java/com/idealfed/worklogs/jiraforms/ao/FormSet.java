@@ -24,6 +24,18 @@ public interface FormSet extends Entity
     String getProjectName();
     void setProjectName(String name);
 
+
+    String getCustomerKey();
+    void setCustomerKey(String customerKey);
+
+    String getIftFormGroup();
+    void setIftFormGroup(String iftFormGroup);
+
+    String getIftFormGroupVersion();
+    void setIftFormGroupVersion(String iftFormGroupVersion);
+
+
+
     @StringLength(value=StringLength.UNLIMITED)
     String getSettings();
     void setSettings(String settings);

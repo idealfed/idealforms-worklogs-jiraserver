@@ -121,6 +121,15 @@ public class LifeCyleManager implements LifecycleAware
 					fs.setSettings(jsonFs.getString("settings"));
 					fs.setProjectName(jsonFs.getString("projectName"));
 					fs.setProjectId(jsonFs.getString("projectId"));
+
+                    try
+                    {
+						fs.setIftFormGroup(jsonFs.getString("iftFormGroup"));
+						fs.setIftFormGroupVersion(jsonFs.getString("iftFormGroupVersion"));
+					}
+					catch(Exception e)
+					{}
+
 					fs.save();
 
 					jsonForms = jsonFs.getJSONArray("forms");

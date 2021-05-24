@@ -304,7 +304,15 @@ public class Craft extends HttpServlet
 				else
 				{
 					plog.info("modeName is NOT versionadmin, decorator is: " + decorator);
-					outTemplate="admin.vm";
+
+					if (decorator.equals("admin"))
+					{
+						outTemplate="admin.vm";
+					}
+					else
+					{
+						outTemplate="admin_nodec.vm";
+					}
 				}
 			else
 			{
@@ -1002,6 +1010,14 @@ public class Craft extends HttpServlet
 		sb.append("\"name\":\"" + fs.getName() + "\",");
 		sb.append("\"projectName\":\"" + fs.getProjectName() + "\",");
 		sb.append("\"projectId\":\"" + fs.getProjectId() + "\",");
+
+
+		sb.append("\"customerKey\":\"" + fs.getCustomerKey() + "\",");
+		sb.append("\"iftFormGroup\":\"" + fs.getIftFormGroup() + "\",");
+		sb.append("\"iftFormGroupVersion\":\"" + fs.getIftFormGroupVersion() + "\",");
+
+
+
 		String sfSettings = fs.getSettings();
 		sfSettings = sfSettings.replaceFirst("(?<=proxyPassword\\\\\",\\\\\"value\\\\\":\\\\\")(.*?)(?=\\\\\",\\\\\"comment)","hidden");
 		sb.append("\"settings\":\"" + sfSettings + "\",");
@@ -1677,6 +1693,11 @@ plog.debug("Configurations cleaned");
 	    		f.setName(inForm.getString("name"));
         		f.setProjectId(inForm.getString("projectId"));
         		f.setProjectName(inForm.getString("projectName"));
+
+        		f.setCustomerKey(inForm.getString(""));
+        		f.setIftFormGroup(inForm.getString("iftFormGroup"));
+        		f.setIftFormGroupVersion(inForm.getString("iftFormGroupVersion"));
+
         		//if proxypassword = hidden, do not overwrite...,need to get the value from the
         		//existing form settings and set it here....
 
@@ -1932,6 +1953,11 @@ plog.debug("Configurations cleaned");
 	        		fs.setSettings(jsonFs.getString("settings"));
 	        		fs.setProjectName(jsonFs.getString("projectName"));
 	        		fs.setProjectId(jsonFs.getString("projectId"));
+
+	        		fs.setCustomerKey("");
+					fs.setIftFormGroup(jsonFs.getString("iftFormGroup"));
+					fs.setIftFormGroupVersion(jsonFs.getString("iftFormGroupVersion"));
+
 	        		fs.save();
 
 		    		jsonForms = jsonFs.getJSONArray("forms");
@@ -2107,6 +2133,11 @@ plog.debug("Configurations cleaned");
 	        		fs.setSettings(jsonFs.getString("settings"));
 	        		fs.setProjectName(jsonFs.getString("projectName"));
 	        		fs.setProjectId(jsonFs.getString("projectId"));
+
+					fs.setCustomerKey("");
+					fs.setIftFormGroup(jsonFs.getString("iftFormGroup"));
+					fs.setIftFormGroupVersion(jsonFs.getString("iftFormGroupVersion"));
+
 	        		fs.save();
 
 		    		jsonForms = jsonFs.getJSONArray("forms");

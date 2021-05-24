@@ -2094,6 +2094,8 @@ getConfigJson:function(inFormSet)
 			name: fs.name,
 			projectName: fs.projectName,
 			projectId: fs.projectId,
+			iftFormGroup: (fs.iftFormGroup==null) ? '' : fs.iftFormGroup,
+			iftFormGroupVersion: (fs.iftFormGroupVersion==null) ? '' : fs.iftFormGroupVersion,
 			settings: JSON.stringify(JSON.stringify(settingsOut)),
 			snippets: fs.snippets.map(function(s){
 					return {
