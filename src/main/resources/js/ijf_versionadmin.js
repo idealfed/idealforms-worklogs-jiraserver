@@ -140,7 +140,7 @@ ijf.versionAdmin = {
             pActionHtml+="<li style='margin-top:15px'>Modify your own Worklogs forms... <a id='formListLinkId' href='javascript:ijf.versionAdmin.onOpenFormDesigner()'>more</a>.<div style='display:none' id='iftProductForms_id'></div></li>";
             pActionHtml+="<li style='margin-top:15px'>Change your working version to one of your backups (below left).</li>";
             pActionHtml+="<li style='margin-top:15px'>Change your working version to one of IFT versions (below right).</li>";
-            pActionHtml+="<li style='margin-top:15px'>Open our <a href='https://www.idealfed.com/products/"+g_IftProduct+"' target='_blank'>feedback and comments page</a> and provide IFT feedback on this product.</li>";
+            pActionHtml+="<li style='margin-top:15px'>Open our <a href='https://www.idealfed.com/support.html' target='_blank'>feedback and comments page</a> and provide IFT feedback on this product.</li>";
             pActionHtml+="</ul>";
 
             outHtml3 = "<div style='margin-top:5px;margin-bottom:0px;font-weight:bold;font-size:20pt'>What you can do:</div><br>" +pActionHtml;
@@ -151,7 +151,7 @@ ijf.versionAdmin = {
             var outHtml1="<div style='font-weight:bold;font-size:24pt'>Ideal Federal Technologies (IFT): Unable to find product</div><br>";
 
 
-            var outHtml2="We are unable to identify your currently installed product for this plugin.  Can you please contact IFT support here (add link)";
+            var outHtml2="We are unable to identify your currently installed product for this plugin.  Can you please contact IFT support <a href='https://www.idealfed.com/support.html' target='_blank'>here</a>.";
 
         }
         var customerBaseUrl = document.location.ancestorOrigins[0];
@@ -319,8 +319,8 @@ ijf.versionAdmin = {
             pActionHtml+="<br><br>&nbsp;&nbsp;&nbsp;&nbsp;<a href='/plugins/servlet/iftwl?decorator=general&formId=IFT%20Worklog%20Report' target='_blank'>Worklogs Report</a>";
             pActionHtml+="<br><br>&nbsp;&nbsp;&nbsp;&nbsp;<a href='/plugins/servlet/iftwl?decorator=general&formId=IFT%20My%20Worklogs' target='_blank'>My Worklogs</a>";
             pActionHtml+="<br><br>";
-            pActionHtml+="Ideal Worklog for JIRA is built upon <a href='https://www.idealfed.com/products' target='_blank'>Ideal Forms for JIRA</a>.  As such you can see and modify your configuration from the <a href='/plugins/servlet/iftwl?decorator=admin&mode=forms' target='_blank'>Ideal Forms administration screen</a>.  Please note, any changes you make to your Worklogs will revert to the default configuration when your server restarts or the plugin is re-enabled.  To retain your changes please consider installing Ideal Forms.";
-            pActionHtml+="<br><br>Please <a href='https://www.idealfed.com/contact' target='_blank'>contact us</a> for questions, suggestions or more information about our products.";
+            pActionHtml+="Ideal Worklog for JIRA is built upon <a href='https://www.idealfed.com/products.html' target='_blank'>Ideal Forms for JIRA</a>.  As such you can see and modify your configuration from the <a href='/plugins/servlet/iftwl?decorator=admin&mode=forms' target='_blank'>Ideal Forms administration screen</a>.  <b>Please note</b>, any changes you make to your Worklogs will revert to the default configuration when your server restarts or the plugin is re-enabled.  To retain your changes please consider installing Ideal Forms.";
+            pActionHtml+="<br><br>Please <a href='https://www.idealfed.com/support.html' target='_blank'>contact us</a> for questions, suggestions or more information about our products.";
             pActionHtml+="<br><br>Thank you,";
             pActionHtml+="<br><br>The Ideal Federal Technologies Team";
 
@@ -332,7 +332,7 @@ ijf.versionAdmin = {
             var outHtml1="<div style='font-weight:bold;font-size:24pt'>Ideal Federal Technologies (IFT): Unable to find product</div><br>";
 
 
-            var outHtml2="We are unable to identify your currently installed product for this plugin.  Can you please contact IFT support";
+            var outHtml2="We are unable to identify your currently installed product for this plugin.  Can you please contact IFT support <a href='https://www.idealfed.com/support.html' target='_blank'>here</a>.";
 
         }
 
