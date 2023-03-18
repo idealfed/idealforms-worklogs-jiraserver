@@ -50,6 +50,11 @@ public class LifeCyleManager implements LifecycleAware
        //location = xxxx
        //clear AO...
 
+          //commenting out...let config live beyond initial
+		  //and require manual installation...
+		  if(2>1)  return;
+
+
 		    int ctr = 0;
 			for (FormSet fs : ao.find(FormSet.class))
 			{
